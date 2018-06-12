@@ -1,33 +1,37 @@
-def fizzbuzz(number):
-	for x in range(1, number + 1):
-		if x % 3 == 0 and x % 5 == 0:
-			print "fizzbuzz"
+# correct logic but many booleans = slow
+def fizzbuzz(x):
+	fb_range = []
 
-		elif x % 5 == 0:
-			print "buzz"
-
-		elif x % 3 == 0:
-			print "fizz"
-
+	for i in range(1, x+1):
+		if i%3 == 0 and i%5 == 0:
+			fb_range.append('fizzbuzz')
+		elif i%3 == 0 and i%5 != 0:
+			fb_range.append('fizz')
+		elif i%5 == 0 and i%3 != 0:
+			fb_range.append('buzz')
 		else:
-			print x
+			fb_range.append(i)
 
-def fizzbuzz(number):
-	"""
-	function description
-	"""
-	for x in range(1, number + 1):
-		output = ""
-		if x % 3 == 0:
-			output += "fizz"
+	print (str(fb_range))
 
-		if x % 5 == 0:
-			output += "buzz"
+fizzbuzz(15)
 
-		if not output:
-			output = x
+# faster due to less booleans to run - no extra boolean for 'fizzbuzz' condition
 
-		print output
+def fizzbuzz(x):
+	fb_range = []
 
-if __name__ == "__main__":
-	fizzbuzz(16)
+	for i in range(1, x+1):
+		val = ''
+		if i%3 == 0:
+			val += 'fizz'
+		if i%5 == 0:
+			val += 'buzz'
+		if val == '':
+			val
+		fb_range.append(val)
+
+	print (str(fb_range))
+
+fizzbuzz(15)
+
